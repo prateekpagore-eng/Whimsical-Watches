@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horological Curiosities</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Special+Elite&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="stage"></div>
+  <div class="vignette"></div>
+  <div class="grain"></div>
+
+  <header id="hud">
+    <div class="brand">
+      <span class="brand-est">Est. 1887 · Drawer Nº 1</span>
+      <span class="brand-name">The Cabinet of Horological Curiosities</span>
+    </div>
+    <div class="counter">
+      <span id="count">0000</span>
+      <span class="counter-label">specimens catalogued · depth ∞</span>
+    </div>
+  </header>
+
+  <div id="hint">Scroll or drag to rummage deeper &middot; Click a watch to examine it</div>
+
+  <div id="tooltip" role="tooltip">
+    <span class="tt-no" id="ttNo"></span>
+    <span class="tt-name" id="ttName"></span>
+    <span class="tt-meta" id="ttMeta"></span>
+  </div>
+
+  <aside id="panel" aria-hidden="true">
+    <button id="close" aria-label="Return the watch to the drawer">&times;</button>
+    <div class="p-exhibit" id="pExhibit"></div>
+    <h2 id="pName"></h2>
+    <p class="p-tagline" id="pTagline"></p>
+    <div class="p-model" id="pModel"></div>
+    <div class="p-rule"></div>
+    <p class="p-story" id="pStory"></p>
+    <dl class="p-specs" id="pSpecs"></dl>
+    <div class="p-tags" id="pTags"></div>
+    <p class="p-hint">&larr; &rarr; keys browse exhibits &middot; Esc or click outside to return it</p>
+    <nav class="p-nav" aria-label="Browse exhibits">
+      <button id="prevBtn" class="nav-btn" aria-label="Previous exhibit">
+        <span class="nav-arrow" aria-hidden="true">&larr;</span>
+        <span class="nav-text"><span class="nav-kicker">Previous</span><span id="prevLabel"></span></span>
+      </button>
+      <button id="nextBtn" class="nav-btn next" aria-label="Next exhibit">
+        <span class="nav-text"><span class="nav-kicker">Next</span><span id="nextLabel"></span></span>
+        <span class="nav-arrow" aria-hidden="true">&rarr;</span>
+      </button>
+    </nav>
+  </aside>
+
+  <div id="loader">
+    <div class="loader-dial"><i></i><b></b></div>
+    <p>Polishing the brass&hellip;</p>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
